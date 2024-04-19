@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunksenai=self.webpackChunksenai||[]).push([[3798],{8302:e=>{e.exports=JSON.parse('{"permalink":"/gh-senai-ads-castro/blog/tags/facebook","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
