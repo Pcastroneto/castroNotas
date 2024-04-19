@@ -16,12 +16,12 @@ const config = {
   url: 'https://pcastroneto.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/gh-senai-ads-castro',
+  baseUrl: '/gh-senai-ads-castro/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'pcastroneto', // Usually your GitHub org/user name.
+  projectName: 'gh-senai-ads-castro', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
