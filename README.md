@@ -1,41 +1,45 @@
+# Link para acessar
+
+[Pagina Inicial](https://pcastroneto.github.io/gh-senai-ads-castro/)
+
 # Website
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Este website é construído usando [Docusaurus](https://docusaurus.io/), um moderno gerador de site estático.
 
-### Installation
+### Instalação
 
 ```
 $ yarn
 ```
 
-### Local Development
+### Desenvolvimento Local
 
 ```
 $ yarn start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Este comando inicia um servidor de desenvolvimento local e abre uma janela do navegador. A maioria das alterações é refletida ao vivo sem a necessidade de reiniciar o servidor.
 
-### Build
+### Compilação
 
 ```
 $ yarn build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+Este comando gera conteúdo estático no diretório `build` e pode ser servido usando qualquer serviço de hospedagem de conteúdo estático.
 
-### Deployment
+### Implantação
 
-Using SSH:
+Usando SSH:
 
 ```
 $ USE_SSH=true yarn deploy
 ```
 
-Not using SSH:
+Não usando SSH:
 
 ```
-$ GIT_USER=<Your GitHub username> yarn deploy
+$ GIT_USER=<Seu nome de usuário do GitHub> yarn deploy
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Se estiver usando o GitHub Pages para hospedagem, este comando é uma maneira conveniente de compilar o site e fazer push para o ramo `gh-pages`.
