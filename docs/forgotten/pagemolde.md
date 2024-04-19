@@ -23,9 +23,9 @@ import TOCInline from '@theme/TOCInline';
 
 Este é um paragrafo continue lendo
 
-Este agora é um link para o doc[link](https://docusaurus.io)
+Este agora é um link para a doc do Docusaurus [link](https://docusaurus.io)
 
-![Akira Img](https://media.discordapp.net/attachments/1130316660935491694/1130318200584810546/16122009002NIVER_BUBU_.jpg?ex=662eff5b&is=661c8a5b&hm=df3e1e7af4c57210a619962075339496433af8c8deb9829fdc6638b62c97c972&=&format=webp&width=895&height=671)
+![Paulin IMG](https://media.discordapp.net/attachments/1130316660935491694/1130318200584810546/16122009002NIVER_BUBU_.jpg?ex=662eff5b&is=661c8a5b&hm=df3e1e7af4c57210a619962075339496433af8c8deb9829fdc6638b62c97c972&=&format=webp&width=895&height=671)
 
 Esta é uma lista.
 
@@ -96,4 +96,4 @@ asdads
 :::note Sim da pra escrever aqui também
 
 E aqui mais uma imagem 
-![Akira IMG2](https://media.discordapp.net/attachments/1130316660935491694/1130318203097194536/23102009001_PAULINHO.jpg?ex=662eff5b&is=661c8a5b&hm=72f3d0327948d82f593ff90bb31bd5bb3a74017d07c942abb8093370b8cf33fa&=&format=webp)
+![Paulinho IMG](https://media.discordapp.net/attachments/1130316660935491694/1130318203097194536/23102009001_PAULINHO.jpg?ex=662eff5b&is=661c8a5b&hm=72f3d0327948d82f593ff90bb31bd5bb3a74017d07c942abb8093370b8cf33fa&=&format=webp)
