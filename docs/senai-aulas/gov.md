@@ -48,5 +48,12 @@ Dar uma olhadas nessas ferramentas:
 
 # Atividade Insana 
 
+1. Defina governança;
+
+2. Qual a relação entre a governança corporativa e a de TI?
+
+3. Qual o apoio que a TI pode dar de apoio à governança corporativa.
+
+4. Como pode ser garantida a integridade dos dados?
 
 
