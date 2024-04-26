@@ -93,10 +93,3 @@ O container adciona uma camada, dividindo em varias camadas, sendo imporante se 
 conceito copy and write
 para cada camada ele vai criar um identidade e ele tem uma inteligencia para 
 Com o hash de cada camada, quanto mais aplicações com as mesmasdependencias você minimiza o espaço utlizado
-
-
-
-
-
-
-
