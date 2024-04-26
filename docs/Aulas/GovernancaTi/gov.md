@@ -1,13 +1,11 @@
 ---
-title: Gov
-sidebar_position: 4
-toc_min_heading_level: 2 
-toc_max_heading_level: 6
+title: Aula 19-04
+sidebar_position: 1
 ---
 
 <iframe src="https://docs.google.com/presentation/d/1eokY5eESUfAZKAvgA1v4Im6TbzjkZyoFDzOk0EmkSIY/edit?usp=sharing" width="100%" height="600px" frameborder="0"> </iframe>
 
-# Governança de TI aula XX
+# Governança de TI
 
 A governança de TI é parte integrante, um membro da governança corporativa
 A diferença entre as duas práticas nesse modelo de gestão é fundamental para entender o papel da TI.
