@@ -1,12 +1,12 @@
 ---
 title: Aula 23-03
-sidebar_position: 1
+sidebar_position: 2
 toc_min_heading_level: 2 
 toc_max_heading_level: 6
 ---
 
-
-# Aula Ciber 23/03/2024
+---
+# Cibersegurança23/03/2024
 
 Objetivos:
 - Implementar testes de segurança.
