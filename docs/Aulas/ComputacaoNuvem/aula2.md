@@ -5,27 +5,41 @@ toc_min_heading_level: 2
 toc_max_heading_level: 6
 ---
 
-aulinhas pós prova tensa...
+# Aulinha pós prova tensa...
 
+## Comandos Iniciais
 
-cmd
+1. **Criar diretório e configurar ambiente virtual:**
 
-mkdir nomedapasta
+   ```bash
+   mkdir nomedapasta
+   cd nomedapasta
+   python -m venv venv
+   code .
+   ```
 
-cd nomedapasta
-python -m venv venv
+2. **Ativar o ambiente virtual:**
 
-code .
+   ```bash
+   venv\Scripts\activate.bat
+   ```
 
-venv\Scripts\activate.bat
+3. **Instalar o Django:**
 
-pip install django
+   ```bash
+   pip install django
+   ```
 
-criei um .gitignore  usando o site [git](https://www.toptal.com/developers/gitignore) com os prompt python, vs, pycharm e django
+4. **Gerar um `.gitignore`:**
+   - Usei o site [gitignore generator](https://www.toptal.com/developers/gitignore) com os prompts: **python**, **vs**, **pycharm** e **django**.
 
-dockerfile com
+---
 
-```js
+## Configuração do Dockerfile
+
+Criei um `Dockerfile` com o seguinte conteúdo:
+
+```dockerfile
 FROM python:3.12
 
 WORKDIR /app
@@ -37,45 +51,109 @@ RUN pip install -r requirements.txt
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 ```
 
-django-admin startproject core .
+---
 
-pip freeze > requirements.txt 
+## Criar o Projeto Django
 
-depois disso dei commit dos arquivos para o github
+1. **Iniciar o projeto Django:**
 
-Abri o site  [PlayWithDocker](https://labs.play-with-docker.com/)
+   ```bash
+   django-admin startproject core .
+   ```
 
-Criei uma isntancia, dei git clone do repositorio, abri a pasta "cd nome-repositoio"
+2. **Gerar o arquivo `requirements.txt`:**
 
-ls -ltrac
+   ```bash
+   pip freeze > requirements.txt
+   ```
 
-docker image build docker-aula-comnuv (esse é o nome do repositorio)
+3. **Fazer o commit dos arquivos para o GitHub.**
 
-readlink -f .
-basename $(readlink -f .)
+---
 
-*docker image build -t $ (basename &( readlink -f .)):0.0.1 .
+## Utilizando o PlayWithDocker
 
-docker image list
+1. **Acessar o [PlayWithDocker](https://labs.play-with-docker.com/)**
+   - Criar uma instância e clonar o repositório:
 
+   ```bash
+   git clone <url-do-repositorio>
+   cd nome-repositorio
+   ```
 
-docker container run --rm -it docker-aula-comnuv:0.0.1 bash
+2. **Listar os arquivos:**
 
-pip freeze no bash 
+   ```bash
+   ls -ltrac
+   ```
 
-voltamos para o arquivo Dockerfile e em baixo do run adcionamos o codigo 
-EXPOSE 8000
+3. **Construir a imagem Docker:**
 
-de volta ao site
+   ```bash
+   docker image build -t docker-aula-comnuv:0.0.1 .
+   ```
 
-no bash demos o comando "exit"
+4. **Exibir o caminho completo e o nome do diretório:**
 
-para confirmar os containers
+   ```bash
+   readlink -f .
+   basename $(readlink -f .)
+   ```
 
-dock caontainer list e dock container list -a para mostrar todos até os desativados
+---
 
-```
-docker container run --name django-app -p 8080:8000 docker-aula-comnuv:0.0.1
-```
+## Rodando o Container
 
+1. **Executar o container em modo interativo com bash:**
 
+   ```bash
+   docker container run --rm -it docker-aula-comnuv:0.0.1 bash
+   ```
+
+2. **Dentro do bash, executar o comando:**
+
+   ```bash
+   pip freeze
+   ```
+
+---
+
+## Ajustes no Dockerfile
+
+1. **Adicionar a linha `EXPOSE 8000` no Dockerfile logo após o `RUN pip install -r requirements.txt`.**
+
+---
+
+## Verificando os Containers
+
+1. **Sair do bash:**
+
+   ```bash
+   exit
+   ```
+
+2. **Listar os containers em execução:**
+
+   ```bash
+   docker container list
+   ```
+
+3. **Listar todos os containers, incluindo os desativados:**
+
+   ```bash
+   docker container list -a
+   ```
+
+---
+
+## Executar o Projeto Django
+
+1. **Rodar o container expondo a porta 8000 para a porta 8080 do host:**
+
+   ```bash
+   docker container run --name django-app -p 8080:8000 docker-aula-comnuv:0.0.1
+   ```
+
+---
+
+Com esses passos, configuramos e rodamos um projeto Django dentro de um container Docker, usando o PlayWithDocker para realizar testes e validações.

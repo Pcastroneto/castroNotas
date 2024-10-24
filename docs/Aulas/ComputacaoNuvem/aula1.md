@@ -5,91 +5,130 @@ toc_min_heading_level: 2
 toc_max_heading_level: 6
 ---
 
+
+
 # Aula COMNUV 23-04-2024
 
-Slides
+## Slides
 <iframe src="https://docs.google.com/presentation/d/1eokY5eESUfAZKAvgA1v4Im6TbzjkZyoFDzOk0EmkSIY/edit?usp=sharing" width="100%" height="600px" frameborder="0"> </iframe>
 
-Hypervisor vai traduzir chamadoss das máquinas para a infraestrutura 
-Vai criar uma estrategia de divisão de recursoso também 
+## Conceitos Fundamentais
 
-Namespace isolamento lógico
+### Hypervisor
+- Traduz as chamadas das máquinas virtuais para a infraestrutura física.
+- Divide os recursos entre as máquinas virtuais de forma estratégica.
 
-Docker só existia em ambientes sofisticados, em máquinas de alto custo, com a concatenização promovida pelo pessoal da docker foi um avanço na industria de desenvolvimento.  
+### Namespace
+- Oferece **isolamento lógico**, garantindo que recursos sejam segmentados entre os containers.
 
-Storager
+### Docker
+- Inicialmente, o Docker era utilizado apenas em **ambientes sofisticados** com máquinas de alto custo.
+- O conceito de **concatenização** desenvolvido pela Docker representou um avanço significativo na indústria de desenvolvimento de software.
 
-Networking
+### Componentes Docker
 
-Namespaces
+1. **Storage**: Responsável pelo armazenamento dos dados.
+2. **Networking**: Gerencia a comunicação entre containers e outros serviços.
+3. **Namespaces**: Fornece isolamento para processos e recursos.
+4. **Cgroups**: Controla a quantidade de recursos que cada container pode usar.
+5. **Security**: Garante a segurança entre os processos isolados.
 
-Cgroups
+---
 
-Security
+## Imagens e Containers
 
+- **Imagem**: Um pacote que contém tudo o que é necessário para rodar um container.
+- **Container**: A imagem em execução. Ele adiciona uma camada de execução ao que está presente na imagem.
 
-o pacote é a imagem do caontainer (imagme é o pacote que estamos gerando, subindo em algum lugar, como o no [DockerHub](https://hub.docker.com/))
-o container é uma imagem em execução
+### Docker Hub
+- Repositório onde as imagens Docker podem ser armazenadas e compartilhadas. Exemplo: [DockerHub](https://hub.docker.com/).
 
-Na aula vamos usar o [PlayWithDocker](https://labs.play-with-docker.com/)
+---
 
-Add new instance
-```
-cat /etc/*release
-```
-Para vermos qual a máquina que estamos usando, que d
+## Ferramentas
 
-```
-Which docker
-Which docker-compose
-```
+- Utilizamos o [PlayWithDocker](https://labs.play-with-docker.com/) para executar comandos e testar as configurações Docker.
 
-Voltamos para o Docker Hub na aba explore, pesquisamos Apache e abrimos o httpd
+### Passos para configuração:
 
-criamos um repositori no git 
-PASTA app com phpinfo.php
-```php
-<?php
-    phpinfo();
-?>
-```
-E um arquivo "Dockerfile"
-```
-FROM php:7.4-apache
+1. **Adicionar uma nova instância**:
+   
+   ```bash
+   cat /etc/*release
+   ```
 
-COPY ./app/ /var/www/html
+   Comando utilizado para identificar o sistema operacional da máquina em uso.
 
-EXPOSE 80
-```
+2. Verificar a instalação do Docker e Docker Compose:
+   
+   ```bash
+   which docker
+   which docker-compose
+   ```
 
-depois voltamos para o play e demos um git clone do repositorio
+---
 
-No site usamos o comando 
+## Configuração do Apache com PHP no Docker
 
-docker image build -t senai-php-app:0.0.1 .
+1. **Pesquisar e baixar o Apache no Docker Hub**:
+   - Dentro da aba *Explore*, pesquisar por **Apache** e abrir a imagem **httpd**.
 
-senai-.. é o nome da imagem 
-0.0.1 (midle,minor)[tag da image]
-o ultimo "." é para executar no contexto atual, no direotrio que estamos 
+2. **Criar um repositório no Git**:
+   - Criar uma pasta chamada `app` e um arquivo `phpinfo.php` com o seguinte código:
 
-Para listarmos as iamgens que nos temos:
-```
-docker image list
-```
+     ```php
+     <?php
+         phpinfo();
+     ?>
+     ```
 
-Para crairmos o container
+   - Criar um arquivo `Dockerfile` com o seguinte conteúdo:
 
-docker container run --name senai-docker-lab-php -p 8080:80 senai-php-app:0.0.1
+     ```dockerfile
+     FROM php:7.4-apache
 
-docker container
+     COPY ./app/ /var/www/html
 
-dentro desse git dizemos um arquivo "Dockerfile" e um diretorio chamado app, dentro dele um phpinfo
+     EXPOSE 80
+     ```
 
-provisionar uma infraestrutura pra suportar, a pagina vai depender de um servidor de banco de dados, vai ter que subir o banco, subir uma instancia do banco de dados, além de configurar outras partes, o que demanda bastante energia.
+3. **Clonar o repositório no PlayWithDocker**:
+   - Após criar o repositório no GitHub, clonar o repositório para o ambiente PlayWithDocker.
 
-O container adciona uma camada, dividindo em varias camadas, sendo imporante se o container segue um padrão e uma relaçao de dependencia de um com o outro, assim não importa o que esta dentro do container tirando um problema para qeu vai conduzir
+4. **Build da Imagem Docker**:
 
+   ```bash
+   docker image build -t senai-php-app:0.0.1 .
+   ```
 
-conceito copy and write
-para cada camada ele vai criar um identidade e ele tem uma inteligencia para 
-Com o hash de cada camada, quanto mais aplicações com as mesmasdependencias você minimiza o espaço utlizado
+   - **senai-php-app** é o nome da imagem.
+   - **0.0.1** é a tag (formato `major.minor.patch`).
+   - O último `.` representa o contexto atual (diretório onde o Dockerfile está localizado).
+
+5. **Listar as imagens criadas**:
+
+   ```bash
+   docker image list
+   ```
+
+6. **Executar o Container**:
+
+   ```bash
+   docker container run --name senai-docker-lab-php -p 8080:80 senai-php-app:0.0.1
+   ```
+
+   - Aqui, o container será iniciado com o nome **senai-docker-lab-php**, mapeando a porta 8080 do host para a porta 80 do container.
+
+---
+
+## Conceitos Avançados
+
+### Provisionamento de Infraestrutura
+- Para rodar uma aplicação PHP, é necessário provisionar uma infraestrutura que suporte:
+  - Um servidor web (Apache).
+  - Um banco de dados (se necessário).
+  - Instâncias e configurações adicionais para garantir a estabilidade e segurança.
+
+### Copy-on-Write
+- Cada camada de um container possui uma identidade única (hash).
+- Containers que compartilham dependências utilizam as mesmas camadas, o que minimiza o espaço utilizado no sistema.

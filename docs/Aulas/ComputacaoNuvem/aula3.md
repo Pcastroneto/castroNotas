@@ -4,35 +4,45 @@ sidebar_position: 3
 ---
 ---
 
+Aqui está a reformulação do conteúdo com base no novo formato solicitado:
+
+---
+
 # Aula 14-05 ComNuv
 
 ## 1. Aplicação React JS [Web]
 
-- **Deploy e Workflow**: A aplicação foi comitada na branch `main` e agora deve ser publicada no **Render**.
-  - Utilização de **Docker** com uma imagem de **Express**.
-  - **Github Actions** para automação do pipeline.
-  - **Docker Hub** para armazenar a imagem:
-    - A tag será dinâmica, gerada a partir da aplicação.
-  - Deploy final no **Render**.
-  - É recomendada a criação de uma camada **API** (opcional, mas uma boa prática).
+### Deploy e Workflow
 
-Dentro do **Github**, um workflow será criado para **forçar a imagem** no repositório. Isso é semelhante ao workflow que já foi utilizado no **Docusaurus** em outra aula.
+A aplicação foi comitada na branch `main` e agora precisa ser publicada no **Render**. A seguir estão os passos principais para realizar esse processo:
+
+- Utilização de **Docker** para criar uma imagem de **Express**.
+- **Github Actions** para automação do pipeline de integração e deploy contínuo.
+- Publicar a imagem no **Docker Hub**:
+  - A **tag** da imagem será gerada dinamicamente a partir da aplicação.
+- Deploy final da aplicação no **Render**.
+- **Camada API**: Não é obrigatória, mas é recomendada para melhorar a organização e escalabilidade.
+
+#### Workflow no Github
+
+Dentro do **Github**, será criado um workflow para **forçar a imagem no repositório**, processo semelhante ao utilizado no **Docusaurus** em uma aula anterior.
 
 ### Passos:
-1. Criar a aplicação com o seguinte comando:
+
+1. Criar a aplicação React com o comando:
 
    ```bash
    npx create-react-app --template typescript exemplo-build-ui
    cd exemplo-build-ui
    ```
 
-2. **Arquivo YAML** para o Github Actions:
-   - **Secrets do Github**: Adicionar as chaves de ambiente (`API keys`, `Docker credentials`, etc.) dentro de `Settings > Secrets` no repositório.
-   - No **Docker Hub**, gerar uma **Access Key**:
-     - Salvar essa chave e associá-la aos **Secrets** do Github.
-   - Executar o **docker push** para enviar a imagem ao Docker Hub.
+2. Criar o arquivo YAML para configurar o **Github Actions**:
+   - Dentro de **Settings > Secrets**, adicionar as variáveis de ambiente, como **API Keys** e **credenciais do Docker**.
+   - No **Docker Hub**, gerar uma **Access Key** e salvar essa chave, associando-a aos **Secrets** do Github.
+   - Executar o comando `docker push` para enviar a imagem ao **Docker Hub**.
 
-#### Portas no Docker:
+### Configuração das Portas no Docker:
+
 - **0-1023**: Portas baixas.
 - **1024-65535**: Portas altas.
 
@@ -40,14 +50,13 @@ Dentro do **Github**, um workflow será criado para **forçar a imagem** no repo
 
 ## 2. Kubernetes Play
 
-### Início da Instância
-Dentro do **Kubernetes Play**, iniciamos a instância e copiamos o código para executar os comandos.
+### Iniciando a Instância
 
-- O `kubectl` traduz os comandos para requisições que a **API dos nodes** executa. O `kubeadm` normalmente é usado para criar o cluster ou reinicializá-lo.
+No **Kubernetes Play**, iniciamos uma instância e utilizamos os seguintes comandos para configurar o ambiente. O **kubectl** é a ferramenta que envia os comandos para a **API dos nodes**, e o **kubeadm** é usado para inicializar ou reiniciar o cluster.
 
-### Comandos executados:
+### Comandos Executados:
 
-1. **Inicializar o cluster no master node**:
+1. **Inicializar o cluster no node master**:
 
    ```bash
    kubeadm init --apiserver-advertise-address $(hostname -i) --pod-network-cidr 10.5.0.0/16
@@ -65,30 +74,33 @@ Dentro do **Kubernetes Play**, iniciamos a instância e copiamos o código para 
    kubectl apply -f https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/application/nginx-app.yaml
    ```
 
-Executamos o código do **passo 1**, que gerou um **código de join**. Esse código foi utilizado na segunda instância para adicionar o node:
+Após o comando de inicialização no **node master**, foi gerado um **código de join** que usamos para adicionar um segundo node ao cluster:
 
 ```bash
 kubeadm join 192.168.0.23:6443 --token g0k0bu.5lgwumf2ehpt1iel \
     --discovery-token-ca-cert-hash sha256:f45942f2acb5ea840d4386c66542272575fb12a3ff95a2e91206a3d80d7e4b51
 ```
 
-Agora temos duas máquinas: uma configurada como **master node** e outra como **work node**.
+Com isso, configuramos duas máquinas: uma como **master node** e outra como **work node**.
 
-- **Cluster Quorum**: Pode haver mais de uma master, mas deve-se levar em consideração o quorum para tomada de decisões no cluster.
+- **Cluster Quorum**: É possível configurar mais de um master node, mas é importante levar em consideração o **quorum** para garantir que o cluster funcione corretamente.
 
 ### Verificação:
-- Executamos o **comando 3** no master.
-- Com os comandos `kubectl get node` e `kubectl get pods`, verificamos que o sistema cria automaticamente novos pods se algum for deletado, graças à configuração de **replicas: 3**, que garante a existência de 3 instâncias da aplicação.
+
+- Executamos o **comando 3** no master node para criar o deployment do NGINX.
+- Com os comandos `kubectl get node` e `kubectl get pods`, verificamos o status dos nodes e pods. Observamos que o Kubernetes recria os pods automaticamente se algum for removido, devido à configuração `replicas: 3`, que mantém sempre três instâncias do NGINX rodando.
 
 ---
 
-## Conceitos de Networking no Kubernetes:
+## Conceitos de Networking no Kubernetes
 
-- **Cluster IP**: Endereço IP usado para comunicação dentro do cluster.
-- **Node Port**: Permite acesso externo ao serviço em uma porta específica.
-- **Load Balancer**: Distribui o tráfego entre os nodes.
+- **Cluster IP**: Usado para comunicação interna entre os pods do cluster.
+- **Node Port**: Expõe um serviço do cluster para fora, mapeando uma porta externa para uma porta interna do cluster.
+- **Load Balancer**: Distribui as requisições entre os nodes para balancear a carga de trabalho.
 
-### Executar um comando curl via Busybox no Kubernetes:
+### Testando Conexão via curl no Kubernetes
+
+Para testar a comunicação com o serviço NGINX, rodamos o comando abaixo no Kubernetes:
 
 ```bash
 kubectl run curl-cmd \
@@ -96,10 +108,12 @@ kubectl run curl-cmd \
 -i --tty --rm
 ```
 
-- Executamos o comando acima para testar o acesso ao serviço NGINX via **curl** no endereço:
+Acessamos o serviço NGINX com o comando **curl** no endereço:
 
-  ```http
-  http://192.168.0.23:30251
-  ```
+```http
+http://192.168.0.23:30251
+```
+
+Esse comando faz uma requisição HTTP ao serviço rodando no cluster.
 
 ---
