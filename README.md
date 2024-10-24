@@ -10,6 +10,7 @@ Este website é construído usando [Docusaurus](https://docusaurus.io/), um mode
 
 
 # PS:
-**Não...** eu não conheço essas pessoas, eu dei commit e as credenciais deles por algum motivo estavam logadas no lugar 
-da minha no computador da faculdade...
+**Não...** eu não conheço essas pessoas, eu dei o git push e as credenciais deles por algum motivo estavam logadas no lugar 
+da minha no computador da faculdade e eu não sei tirar ☠
+
 ![image](https://github.com/user-attachments/assets/8018dbbd-c573-4244-83d6-f20c850b1eb9)
