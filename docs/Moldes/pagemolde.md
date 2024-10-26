@@ -25,7 +25,7 @@ Este é um paragrafo continue lendo
 
 Este agora é um link para a doc do Docusaurus [link](https://docusaurus.io)
 
-![Paulin IMG](https://media.discordapp.net/attachments/1130316660935491694/1130318200584810546/16122009002NIVER_BUBU_.jpg?ex=662eff5b&is=661c8a5b&hm=df3e1e7af4c57210a619962075339496433af8c8deb9829fdc6638b62c97c972&=&format=webp&width=895&height=671)
+![Teste IMG](https://media.discordapp.net/attachments/1130316660935491694/1130318200584810546/16122009002NIVER_BUBU_.jpg?ex=662eff5b&is=661c8a5b&hm=df3e1e7af4c57210a619962075339496433af8c8deb9829fdc6638b62c97c972&=&format=webp&width=895&height=671)
 
 Esta é uma lista.
 
@@ -49,16 +49,13 @@ console.log(name);
 
 esta é uma fudendo tabela
 
-|Cavaleiros |
-| ------------ |
-| Morte     |
-| Vida      |
-| Criação  |
-| Esperança |
-| Agonia|
-| Medo  |
-| Justiça|
-| Destruição |
+| Linguagem   | Frameworks                     |
+|-------------|--------------------------------|
+| Java        | Java Spring MVC, Struts        |
+| Python      | Django, Flask                  |
+| PHP         | Laravel, CodeIgniter           |
+| Ruby        | Ruby on Rails                  |
+| JavaScript  | Angular, React (com adaptações)|
 
 esta é uma regra horizontal
 ---
@@ -96,4 +93,4 @@ asdads
 :::note Sim da pra escrever aqui também
 
 E aqui mais uma imagem 
-![Paulinho IMG](https://media.discordapp.net/attachments/1130316660935491694/1130318203097194536/23102009001_PAULINHO.jpg?ex=662eff5b&is=661c8a5b&hm=72f3d0327948d82f593ff90bb31bd5bb3a74017d07c942abb8093370b8cf33fa&=&format=webp)
+![Era pra ter uma img aqui](https://media.discordapp.net/attachments/1130316660935491694/1130318203097194536/23102009001_PAULINHO.jpg?ex=662eff5b&is=661c8a5b&hm=72f3d0327948d82f593ff90bb31bd5bb3a74017d07c942abb8093370b8cf33fa&=&format=webp)
