@@ -56,7 +56,7 @@ Esses componentes trabalham em conjunto para garantir uma experiência imersiva 
 
 ---
 
-![Exemplo de Imagem de Realidade Virtual]()
+![Exemplo de Imagem de Realidade Virtual](https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQpIQW6RM5sHVyH9a34VynkMOcqI8fYFuW1QjKEj8Z0FuSsrbnbNZV25DtOX9UjovCyBRHIZ6FvL2yVqEWNf3HThmBToyLg94ifOVwaNGL-FkTsme5YqJnJ&usqp=CAE)
 > *Figura 1*: Representação artística de um headset VR.
 
 ---
