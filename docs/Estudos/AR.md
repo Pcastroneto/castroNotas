@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Realidade Aumentada (AR)
 
 ## O que é Realidade Aumentada?

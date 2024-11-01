@@ -1,3 +1,6 @@
+---
+sidebar_position: 1
+---
 # Realidade Virtual (VR)
 
 A **Realidade Virtual (VR)** é uma tecnologia que permite ao usuário imergir em um ambiente simulado, proporcionando uma experiência interativa e sensorial. Esse ambiente pode ser **completamente digital** ou uma recriação de um ambiente físico existente. Vamos explorar o tema em detalhes!
