@@ -20,7 +20,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/category/aulas">
-            Anotações e testes - 📚
+            Anotações e Estudos - 📚
           </Link>
         </div>
       </div>
