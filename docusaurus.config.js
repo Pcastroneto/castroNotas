@@ -16,12 +16,12 @@ const config = {
   url: 'https://pcastroneto.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/gh-senai-ads-castro/',
+  baseUrl: '/castroNotas/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'pcastroneto', // Usually your GitHub org/user name.
-  projectName: 'gh-senai-ads-castro', // Usually your repo name.
+  projectName: 'castroNotas', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -85,7 +85,7 @@ const config = {
             items: [
               {
                 label: 'Repositorio',
-                to: 'https://github.com/Pcastroneto/gh-senai-ads-castro.git',
+                to: 'https://github.com/Pcastroneto/castroNotas.git',
               },
               {
                 label: 'GitHub',

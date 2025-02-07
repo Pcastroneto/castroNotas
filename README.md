@@ -11,6 +11,8 @@ Este é um repositório de um site feito com Docusaurus, onde documento e anoto 
 # Link de acesso
 
 [Pagina Inicial](https://pcastroneto.github.io/gh-senai-ads-castro/)
+https://pcastroneto.github.io/castroNotas/
+
 
 
 
