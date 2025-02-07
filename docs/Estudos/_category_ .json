@@ -1,9 +1,8 @@
 {
-    "label": "pagina testes",
-    "position": 1,
+    "label": "Estudos Gerais",
     "link": {
         "type": "generated-index",
-        "description": "Aqui você encontrará todas as informações relacionadas as aulas ou pelo menos era pra encontrar"
+        "description": "Aqui você encontrará todas as informações relacionadas aos meus estudo fora da escola ou pelo menos era pra encontrar"
     }
 
 }
